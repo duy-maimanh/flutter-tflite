@@ -165,7 +165,11 @@ class Interpreter {
         TfLiteStatus.kTfLiteOk);
   }
 
-  /// Run for single input and output
+  /// Run inference for single input and output
+  /// [input] is an object of any type
+  /// [output] is an object of any type
+  /// The function creates an empty map, inserts output at key 0, 
+  /// and then calls [runForMultipleInputs].
   void run(Object input, Object output) {
     var map = <int, Object>{};
     map[0] = output;
